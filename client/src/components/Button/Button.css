@@ -1,0 +1,27 @@
+.light, .medium, .dark {
+    display: flex;
+
+    padding: 1px 15%;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.light {
+    background: #FFB8AF;
+}
+
+.medium {
+    background: #ED6B5A;
+}
+
+.dark {
+    background: #D34735;
+}
+
+.light h1, .medium h1, .dark h1 {
+    margin: 5px 0;
+}
+
+.light h2, .medium h2, .dark h2 {
+    margin: 9px 0;
+}

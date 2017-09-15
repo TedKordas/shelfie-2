@@ -1,0 +1,22 @@
+.homeHeader {
+    background-color: #AB2A19;
+    height: 90px;
+    color: white;
+    padding-left: 20%;
+
+    display: flex;
+    align-items: center;
+}
+
+.logoText {
+    margin-left: 10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 20%;
+    margin-top: 10px;
+    width: 500px;
+}
