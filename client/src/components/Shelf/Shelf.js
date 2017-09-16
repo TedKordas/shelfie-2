@@ -2,28 +2,52 @@ import React, { Component } from 'react';
 import './Shelf.css';
 import Button from '../Button/Button';
 import Header from '../Header/Header';
-import Axios from 'axios';
+import axios from 'axios';
 
 export default class Shelf extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            bins: [],
+            letter: props.match.params.letter
+        }
+    }
 
     componentDidMount() {
-        const bins = Axios.get('/api/shelf/' + this.props.match.params.letter);
-        console.log(bins);
+        axios.get('http://localhost:3001/api/shelf/' + this.props.match.params.letter)
+        .then(res => {
+            this.setState({ bins: res.data })
+        })
+    }
+
+    createButtons() {
+        const bins = this.state.bins;
+        // return bins.map((bin, i) => {return <Button to='/' text='Test' shade='light' />});
+        return bins.map( (bin, i, arr) => {
+            return(
+            arr[i] === null
+            ?
+            <Button to={`/bin/${this.state.letter}${i + 1}`} text='+ Add Inventory' shade='light' key={i + 1} />
+            :
+            <Button to={`/bin/${this.state.letter}${i + 1}`} text={`Bin ${i + 1}`} shade='medium' key={i + 1} />
+            )
+        })
     }
 
     render() {
-        const letter = this.props.match.params.letter;
-
         return(
             <div>
-                <Header page='Shelf' shelfTitle={ 'Shelf ' + letter } />
+                <Header page='Shelf' shelfTitle={ 'Shelf ' + this.state.letter } />
 
                 <div className='content' >
-                    <Button to={ '/shelf/' + letter + '/1' } text='+ Add inventory to bin' shade='light' />
-                    <Button to={ '/shelf/' + letter + '/2' } text='+ Add inventory to bin' shade='light' />
-                    <Button to={ '/shelf/' + letter + '/3' } text='+ Add inventory to bin' shade='light' />
-                    <Button to={ '/shelf/' + letter + '/4' } text='+ Add inventory to bin' shade='light' />
-                    <Button to={ '/shelf/' + letter + '/5' } text='+ Add inventory to bin' shade='light' />
+                    {
+                        this.state.bins[0] === undefined
+                        ?
+                        null
+                        :
+                        this.createButtons()
+                    }
                 </div>
             </div>
         );

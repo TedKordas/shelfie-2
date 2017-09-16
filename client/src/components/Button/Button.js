@@ -10,7 +10,6 @@ export default function Button(props) {
             <h1>{ props.text }</h1> :
             <h2>{ props.text }</h2>        
             }
-            
         </div>
     </Link>
     );
