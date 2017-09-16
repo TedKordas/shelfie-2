@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import './Home.css';
 import Button from '../Button/Button';
+import Header from '../Header/Header';
 
 export default class Home extends Component {
     render() {
         return(
             <div>
-                <div className="homeHeader">
-                    <img src='/logo.png' alt='logo'></img>
-                    <h1 className="logoText">SHELFIE</h1>
-                </div>
+                <Header page='Home' />
 
                 <div className='content'>
                     <Button to='/shelf/A' text='Shelf A' shade='dark' />

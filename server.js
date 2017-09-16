@@ -13,9 +13,11 @@ massive( process.env.DATABASE_URL ).then( dbInstance => app.set('db', dbInstance
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get( '/api/bins/:shelf', bin_controller.getAllBins );
-app.get( '/api/bins/:shelf/:bin', bin_controller.getOneBin );
-app.put( '/api/bins/:shelf/:bin', bin_controller.updateBin );
+app.get( '/api/shelf/:id', bin_controller.getAllBins );
+app.get( '/api/bin/:id', bin_controller.getOneBin );
+app.put( '/api/bin/:id', bin_controller.updateBin);
+app.delete( '/api/bin/:id', bin_controller.deleteBin);
+app.post( '/api/bin/:id', bin_controller.createBin);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
