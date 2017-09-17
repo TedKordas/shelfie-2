@@ -37,7 +37,7 @@ export default function Header(props) {
                     </Link>
                 </div>
                 <div className='headerRightBin'>
-                    <h1>{ 'Add to Bin ' + props.binNumber }</h1>
+                    <h1>{ props.binTitle }</h1>
                 </div>
             </div>
         );
