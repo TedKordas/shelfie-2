@@ -71,7 +71,7 @@ export default class EditBin extends Component {
                     <h4>Name</h4>
                     <input type='text' className='input' value={this.state.nameInput} onChange={this.updateName} disabled={this.state.viewOnlyMode} />
                     <h4>Price</h4>
-                    <input type='text' className='input' value={this.state.priceInput} onChange={this.updatePrice} disabled={this.state.viewOnlyMode} />
+                    <input type='text' className='input' value={this.state.priceInput} onChange={this.updatePrice} disabled={this.state.viewOnlyMode} placeholder='0.00' />
                     <div className='buttonGroup'>
                         {
                             this.state.viewOnlyMode

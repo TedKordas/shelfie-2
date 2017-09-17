@@ -44,7 +44,7 @@ export default class AddBin extends Component {
                 <h4>Name</h4>
                 <input type='text' className='input' value={this.state.nameInput} onChange={this.updateName} />
                 <h4>Price</h4>
-                <input type='text' className='input' value={this.state.priceInput} onChange={this.updatePrice} />
+                <input type='text' className='input' value={this.state.priceInput} onChange={this.updatePrice} placeholder='0.00' />
                 <div className='buttonAdd' onClick={this.handleSubmit}>
                     <p>+ Add Inventory</p>
                 </div>
