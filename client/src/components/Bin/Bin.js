@@ -17,7 +17,7 @@ export default class Bin extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3001/api/bin/' + this.props.match.params.id)
+        axios.get('/api/bin/' + this.props.match.params.id)
         .then(res => {
             this.setState({ bin: res.data });
         })

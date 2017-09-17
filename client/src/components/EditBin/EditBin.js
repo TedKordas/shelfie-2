@@ -23,7 +23,7 @@ export default class EditBin extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3001/api/bin/' + this.state.id)
+        axios.get('/api/bin/' + this.state.id)
         .then(res => {
             console.log(res.data[0]["name"]);
             this.setState({

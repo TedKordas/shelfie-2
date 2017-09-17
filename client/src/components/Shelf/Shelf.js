@@ -15,7 +15,7 @@ export default class Shelf extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3001/api/shelf/' + this.state.letter)
+        axios.get('/api/shelf/' + this.state.letter)
         .then(res => {
             this.setState({ bins: res.data })
         })
